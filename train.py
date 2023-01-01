@@ -2,8 +2,8 @@ import os
 import argparse
 import json
 import numpy as np
-import torch
-import torch.nn as nn
+import tensorflow as tf
+from tensorflow import keras
 
 from utils.util import find_max_epoch, print_size, training_loss, calc_diffusion_hyperparams
 from utils.util import get_mask_mnr, get_mask_bm, get_mask_rm
@@ -55,7 +55,7 @@ def train(output_directory,
 
     # map diffusion hyperparameters to gpu
     for key in diffusion_hyperparams:
-        if key != "T":
+        if key != "T":’
             diffusion_hyperparams[key] = diffusion_hyperparams[key]
 
     # predefine model
